@@ -7,7 +7,7 @@ public class gameplay : MonoBehaviour {
 	static public choice player1choice = choice.undecided;
 	static public choice player2choice = choice.undecided;
 	int screenX = 0;	// backgroud screen we're fighting on
-	bool	newWinner = false;	// 0 = player 2 won, move left, 1 = player 1 won, move right
+	bool	newWinner = false;	// false = player 2 won, move left, true = player 1 won, move right
 	public float scrollSpeed = 6f;
 
 	float[] screenXs = {
@@ -31,6 +31,8 @@ public class gameplay : MonoBehaviour {
 				gameState = gState.intro;
 				break;
 			case gState.intro:
+//				gameState = gState.showresult;
+//				newWinner = true;
 				break;
 			case gState.getready:
 				break;
@@ -54,15 +56,15 @@ public class gameplay : MonoBehaviour {
 				}
 				break;
 			case gState.movetonextscene:
-				if (newWinner) {	// player 2 won, scrolling left
-					transform.position -= new Vector3(scrollSpeed * Time.deltaTime,0,0);
-					if (transform.position.x < screenXs[screenX])
-						gameState = gState.getready;
-				} else {		// player 1 won, scrolling right
+				if (newWinner) {	// player 1 won, scrolling left
 					transform.position += new Vector3(scrollSpeed * Time.deltaTime,0,0);
 					if (transform.position.x > screenXs[screenX])
 						gameState = gState.getready;
-			}
+				} else {		// player 2 won, scrolling right
+					transform.position -= new Vector3(scrollSpeed * Time.deltaTime,0,0);
+					if (transform.position.x < screenXs[screenX])
+						gameState = gState.getready;
+				}
 				break;
 			case gState.victory:
 				break;
