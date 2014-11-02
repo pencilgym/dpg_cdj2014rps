@@ -4,6 +4,7 @@ using System.Collections;
 public class gameplay : MonoBehaviour {
 	static	gState gameState;
 	public GameObject playerObj;
+	public GameObject playerObj2;
 	public GameObject numberObj;
 
 	GameObject plr1;
@@ -28,8 +29,8 @@ public class gameplay : MonoBehaviour {
 		switch (gameState) {
 			case gState.setupscene:
 				// instantiate players
-				plr1 = Instantiate(playerObj, new Vector3(-3.34f, 1.07f, 0), Quaternion.identity) as GameObject;
-				plr2 = (GameObject) Instantiate(playerObj, new Vector3(17.3f, 1.07f, 0), Quaternion.identity);
+				plr1 = Instantiate(playerObj, new Vector3(-10f, -3.5f, 0), Quaternion.identity) as GameObject;
+				plr2 = Instantiate(playerObj2, new Vector3(10f, -3.5f, 0), Quaternion.identity) as GameObject;
 				plr2.GetComponent<playerScript>().makePlayerTwo();
 				gameState = gState.intro;
 				break;
