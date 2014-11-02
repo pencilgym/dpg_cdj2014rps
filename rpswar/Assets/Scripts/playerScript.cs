@@ -2,15 +2,15 @@
 using System.Collections;
 
 public class playerScript : MonoBehaviour {
-
+	
 	public float scaleValue = 0.4f;
 	public bool	playerTwo;
 	public float runspeed = 3.5f;
 	public pState playerState;
 	private string playerColor;
 	float misctime;
-
-
+	
+	
 	// Use this for initialization
 	void Start () {
 		Vector3 vect = transform.localScale;
@@ -25,12 +25,14 @@ public class playerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		switch (playerState) {
 		case pState.introrun:
 			transform.position += new Vector3(runspeed * Time.deltaTime,0,0);
 			if (Time.time > misctime + 1.5f){
 				playerState = pState.idle;
 				ChangeAnimation(playerState);
+				Debug.Log("SEEE");
 			}
 			break;
 		case pState.idle:
@@ -41,7 +43,7 @@ public class playerScript : MonoBehaviour {
 			break;
 		case pState.winrun:
 			break;
-		}
+		} 
 		
 	}
 	
@@ -49,8 +51,12 @@ public class playerScript : MonoBehaviour {
 		playerTwo = true;
 		runspeed = -runspeed;	// runs left instead of right
 	}
-
+	
 	public void ChangeAnimation(pState state){
+
+		Debug.Log (gameObject.name);
+
+		playerState = state;
 		if(playerTwo){
 			playerColor = "blue";
 		} else {
@@ -66,7 +72,7 @@ public class playerScript : MonoBehaviour {
 		}
 		if(state == pState.winrun){
 			playerState = pState.winrun;
-			animation.Play (playerColor+"_run");
+			animation.Play(playerColor+"_run");
 		}
 		if (state == pState.lose){
 			playerState = pState.lose;

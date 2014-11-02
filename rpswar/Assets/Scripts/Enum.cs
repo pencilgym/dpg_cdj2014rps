@@ -4,6 +4,7 @@
 	getready,
 	choose,
 	showresult,
+	killloser,
 	movetonextscene,
 	victory,
 };
