@@ -537,8 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5575352769bfab345aa17c18385a94e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObj: {fileID: 100058, guid: 5d6712a149ca149a7a061b85c7311dcf, type: 2}
-  playerObj2: {fileID: 100000, guid: c2b08d4482ea5364e8c741b4c1bd47d6, type: 2}
+  playerObj: {fileID: 100000, guid: 4ffec10167b258d479951f78ef431fd6, type: 2}
   numberObj: {fileID: 0}
   scrollSpeed: 6
 --- !u!1 &163159895

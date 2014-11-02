@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 400000}
   - 111: {fileID: 11100000}
   - 212: {fileID: 21200000}
-  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: RoshamboBlue
   m_TagString: Untagged
@@ -879,7 +878,7 @@ Animation:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 61dec95f1558ced4daaa578e70b481de, type: 2}
+  m_Animation: {fileID: 7400000, guid: e936a55d232a1844c9cc6b726b2a6688, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 984e9b6492c1fcd44a892f0573e2e3de, type: 2}
   - {fileID: 7400000, guid: e936a55d232a1844c9cc6b726b2a6688, type: 2}
@@ -888,21 +887,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a58201e19b9e4c9458de814f952aa21b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaleValue: .349999994
-  playerTwo: 1
-  runspeed: 5
-  playerState: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
