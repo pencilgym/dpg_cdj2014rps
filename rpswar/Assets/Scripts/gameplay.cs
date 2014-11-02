@@ -37,11 +37,21 @@ public class gameplay : MonoBehaviour {
 			case gState.choose:
 				break;
 			case gState.showresult:
-				// check to see if final victory achieved, if so go to victory
-
-				// when done showing the result, start scrolling screen
-				screenX = newWinner ? screenX+1 : screenX-1;
-				gameState = gState.movetonextscene;
+				if (newWinner) {	// player 1 wins this battle?
+					if (screenX == 7) {
+						gameState = gState.victory;
+					} else {
+						screenX++;
+						gameState = gState.movetonextscene;
+					}
+				} else {	// player 2 wins this battle
+					if (screenX == 0) {
+						gameState = gState.victory;
+					} else {
+						screenX--;
+						gameState = gState.movetonextscene;
+					}
+				}
 				break;
 			case gState.movetonextscene:
 				if (newWinner) {	// player 2 won, scrolling left
