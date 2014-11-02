@@ -7,7 +7,8 @@ public class gameplay : MonoBehaviour {
 	static public choice player1choice = choice.undecided;
 	static public choice player2choice = choice.undecided;
 	int screenX = 0;	// backgroud screen we're fighting on
-	float destinationX;	// when scrolling to a new screen, X coord we want for camera
+	bool	newWinner = false;	// 0 = player 2 won, move left, 1 = player 1 won, move right
+	public float scrollSpeed = 6f;
 
 	float[] screenXs = {
 		-76.8f,-57.6f,-38.4f,-19.2f,0,19.2f,38.4f,57.6f,76.8f
@@ -39,10 +40,19 @@ public class gameplay : MonoBehaviour {
 				// check to see if final victory achieved, if so go to victory
 
 				// when done showing the result, start scrolling screen
-				destinationX = screenXs[screenX];
+				screenX = newWinner ? screenX+1 : screenX-1;
 				gameState = gState.movetonextscene;
 				break;
 			case gState.movetonextscene:
+				if (newWinner) {	// player 2 won, scrolling left
+					transform.position -= new Vector3(scrollSpeed * Time.deltaTime,0,0);
+					if (transform.position.x < screenXs[screenX])
+						gameState = gState.getready;
+				} else {		// player 1 won, scrolling right
+					transform.position += new Vector3(scrollSpeed * Time.deltaTime,0,0);
+					if (transform.position.x > screenXs[screenX])
+						gameState = gState.getready;
+			}
 				break;
 			case gState.victory:
 				break;
