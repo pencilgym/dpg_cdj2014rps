@@ -46,8 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Enum.cs" />
      <Compile Include="Assets\Scripts\GUITest.cs" />
      <Compile Include="Assets\Scripts\PlayButtons.cs" />
+     <Compile Include="Assets\Scripts\TestPlay.cs" />
      <Compile Include="Assets\Scripts\gameplay.cs" />
      <Compile Include="Assets\Scripts\playerScript.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />

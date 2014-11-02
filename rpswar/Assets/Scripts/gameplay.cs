@@ -2,30 +2,6 @@
 using System.Collections;
 
 public class gameplay : MonoBehaviour {
-
-	enum gState {
-		setupscene,
-		intro,
-		getready,
-		choose,
-		showresult,
-		movetonextscene,
-		victory,
-	};
-
-	public enum choice {
-		undecided,
-		rock,
-		scissors,
-		paper
-	};
-
-	enum winner {
-		p1wins,
-		p2wins,
-		tie
-	}
-
 	static	gState gameState;
 	public GameObject playerObj;
 	static public choice player1choice = choice.undecided;
@@ -85,12 +61,13 @@ public class gameplay : MonoBehaviour {
 		GUI.Label (new Rect (10, 600, 200, 20), output);
 	}
 	*/
-
+	
 	void scrollCamera() {
 
 	}
 
-	winner determineWinner() {
+
+	public winner determineWinner() {
 		if (player1choice == choice.undecided && player2choice == choice.undecided)
 			return winner.tie;
 		switch (player1choice) {

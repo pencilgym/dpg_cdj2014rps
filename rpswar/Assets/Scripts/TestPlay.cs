@@ -1,28 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayButtons : MonoBehaviour {
+public class TestPlay : MonoBehaviour {
+	
 	public GUIStyle paperButton;
 	public GUIStyle rockButton;
 	public GUIStyle scissorButton;
-
+	
 	public gameplay levelManager;
 	
 	void Start()
 	{
 		levelManager = GetComponent<gameplay> ();
 	}
-
+	
 	void OnGUI(){
-
+		
 		float leftButtonX = (float)(Screen.width / 10) ;
 		float rightButtonX = (float)(Screen.width / 1.3) ;
 		float buttonYPaper = (float)(Screen.height / 100);
 		float buttonYRock = (float) (Screen.height /3);
 		float buttonYScissors = (float) (Screen.height / 1.5);
-
+		
 		if (GUI.Button(new Rect(leftButtonX, buttonYPaper, 100, 100), "", paperButton)) {
-	
+			
 		}
 		if (GUI.Button(new Rect(leftButtonX, buttonYRock, 100, 100), "", rockButton)) {
 			
@@ -39,10 +40,8 @@ public class PlayButtons : MonoBehaviour {
 		if (GUI.Button(new Rect(rightButtonX, buttonYScissors, 100, 100), "", scissorButton)) {
 			
 		}
-
 		
-
+		
+		
 	}
-
-
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class playerScript : MonoBehaviour {
-
+	
 	public enum pState {
 		introrun,
 		idle,
@@ -10,19 +10,19 @@ public class playerScript : MonoBehaviour {
 		lose,
 		winrun
 	};
-
+	
 	public bool	playerTwo;
 	public float runspeed = 3.5f;
 	public pState playerState;
 	float misctime;
-
+	
 	// Use this for initialization
 	void Start () {
 		playerState = pState.introrun;
 		misctime = Time.time;
 	}
-
-		// Update is called once per frame
+	
+	// Update is called once per frame
 	void Update () {
 		switch (playerState) {
 		case pState.introrun:
@@ -39,9 +39,9 @@ public class playerScript : MonoBehaviour {
 		case pState.winrun:
 			break;
 		}
-
+		
 	}
-
+	
 	public void makePlayerTwo() {
 		playerTwo = true;
 		runspeed = -runspeed;	// runs left instead of right
