@@ -174,13 +174,13 @@ MonoBehaviour:
   paperButton:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 2800000, guid: 831753a9b7ea21343a7950b1f0af392b, type: 3}
+      m_Background: {fileID: 2800000, guid: f10e062a951346446a19a67587797fa0, type: 3}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Active:
-      m_Background: {fileID: 0}
+      m_Background: {fileID: 2800000, guid: e9420914077aa1b4aa49af96dcbcbcae, type: 3}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
@@ -233,13 +233,13 @@ MonoBehaviour:
   rockButton:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 2800000, guid: 2b8d4de8952d3884f89cccc52c4f42bb, type: 3}
+      m_Background: {fileID: 2800000, guid: a4123ceee8d921542a20ff1a1c9e1986, type: 3}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Active:
-      m_Background: {fileID: 0}
+      m_Background: {fileID: 2800000, guid: d23df46068da3c5429275151ef16f368, type: 3}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
@@ -292,13 +292,13 @@ MonoBehaviour:
   scissorButton:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 2800000, guid: 21e454c8f2840e44db42e3160847e3b2, type: 3}
+      m_Background: {fileID: 2800000, guid: 14a04ac728a9c9c47b04491db12b9ddd, type: 3}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Active:
-      m_Background: {fileID: 0}
+      m_Background: {fileID: 2800000, guid: 8681c7fa40c429440a6c74697683bbcd, type: 3}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
