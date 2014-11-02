@@ -22,7 +22,7 @@ public class PlayButtons : MonoBehaviour {
 		float buttonYScissors = (float) (Screen.height / 1.5);
 
 		if (GUI.Button(new Rect(leftButtonX, buttonYPaper, 100, 100), "", paperButton)) {
-	
+
 		}
 		if (GUI.Button(new Rect(leftButtonX, buttonYRock, 100, 100), "", rockButton)) {
 			
@@ -39,8 +39,6 @@ public class PlayButtons : MonoBehaviour {
 		if (GUI.Button(new Rect(rightButtonX, buttonYScissors, 100, 100), "", scissorButton)) {
 			
 		}
-
-		
 
 	}
 
