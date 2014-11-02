@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObj: {fileID: 100000, guid: 4ffec10167b258d479951f78ef431fd6, type: 2}
-  numberObj: {fileID: 0}
+  numObj: {fileID: 100010, guid: 22384ffe3e25590468967efca2fd6a85, type: 2}
   scrollSpeed: 6
 --- !u!1 &163159895
 GameObject:

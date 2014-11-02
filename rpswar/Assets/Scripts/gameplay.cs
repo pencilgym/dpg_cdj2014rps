@@ -4,7 +4,7 @@ using System.Collections;
 public class gameplay : MonoBehaviour {
 	static	gState gameState;
 	public GameObject playerObj;
-	public GameObject numberObj;
+	public GameObject numObj;
 
 	GameObject plr1;
 	GameObject plr2;
@@ -37,8 +37,9 @@ public class gameplay : MonoBehaviour {
 //				gameState = gState.showresult;
 //				newWinner = true;
 				if (plr1.GetComponent<playerScript>().playerState == pState.idle) {
-					float centerX = screenXs[screenX] + Screen.width/2;
-//					Instantiate(numberObj, new Vector3(centerX, Screen.height/2, 0), Quaternion.identity); // spawn #
+					float centerX = screenXs[screenX] + Camera.main.pixelWidth/2;
+				//	Instantiate(numObj, new Vector3(centerX, Camera.main.pixelHeight/2, 0), Quaternion.identity); // spawn #
+					Instantiate(numObj, new Vector3(0, 0.5f, 0), Quaternion.identity); // spawn #
 					gameState = gState.getready;
 				}
 				break;
