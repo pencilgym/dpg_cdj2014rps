@@ -30,10 +30,17 @@ public class gameplay : MonoBehaviour {
 	public GameObject playerObj;
 	static public choice player1choice = choice.undecided;
 	static public choice player2choice = choice.undecided;
+	int screenX = 0;	// backgroud screen we're fighting on
+	float destinationX;	// when scrolling to a new screen, X coord we want for camera
 
+	float[] screenXs = {
+		-76.8f,-57.6f,-38.4f,-19.2f,0,19.2f,38.4f,57.6f,76.8f
+	};
 	// Use this for initialization
 	void Start () {
 		gameState = gState.setupscene;
+		screenX = 4;	// middle screen
+		transform.position = new Vector3(screenXs[screenX],transform.position.y,transform.position.z);
 	}
 	
 	// Update is called once per frame
@@ -53,6 +60,11 @@ public class gameplay : MonoBehaviour {
 			case gState.choose:
 				break;
 			case gState.showresult:
+				// check to see if final victory achieved, if so go to victory
+
+				// when done showing the result, start scrolling screen
+				destinationX = screenXs[screenX];
+				gameState = gState.movetonextscene;
 				break;
 			case gState.movetonextscene:
 				break;
@@ -73,6 +85,10 @@ public class gameplay : MonoBehaviour {
 		GUI.Label (new Rect (10, 600, 200, 20), output);
 	}
 	*/
+
+	void scrollCamera() {
+
+	}
 
 	winner determineWinner() {
 		if (player1choice == choice.undecided && player2choice == choice.undecided)
