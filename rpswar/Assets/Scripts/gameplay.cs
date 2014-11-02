@@ -4,8 +4,7 @@ using System.Collections;
 public class gameplay : MonoBehaviour {
 	static	gState gameState;
 	public GameObject playerObj;
-	static public choice player1choice = choice.undecided;
-	static public choice player2choice = choice.undecided;
+
 	int screenX = 0;	// backgroud screen we're fighting on
 	float destinationX;	// when scrolling to a new screen, X coord we want for camera
 
@@ -67,53 +66,51 @@ public class gameplay : MonoBehaviour {
 	}
 
 
-	public winner determineWinner() {
-		if (player1choice == choice.undecided && player2choice == choice.undecided)
-			return winner.tie;
-		switch (player1choice) {
-		case choice.undecided:
-			return winner.p2wins;
-		case choice.rock:
-			{
-				switch (player2choice) {
-				case choice.rock:
-					return winner.tie;
-				case choice.scissors:
-				case choice.undecided:
-					return winner.p1wins;
-				case choice.paper:
-				default:
+	static public winner determineWinner(choice one, choice two) {
+		Debug.Log (one + " " + two);
+		if (one == choice.undecided && two == choice.undecided) return winner.tie;
+		switch (one) {
+			case choice.undecided:
 				return winner.p2wins;
-				}
-			}
-		case  choice.scissors:
-			{
-			switch (player2choice) {
-				case choice.rock:
-					return winner.p2wins;
-				case choice.scissors:
-					return winner.tie;
-				case choice.paper:
-				case choice.undecided:
-					default:
-					return winner.p1wins;
-				}
-			}
-		case  choice.paper:
-		default:
-			{
-				switch (player2choice) {
-				case choice.undecided:
-				case choice.rock:
-					return winner.p1wins;
-				case choice.scissors:
-					return winner.p2wins;
-				case choice.paper:
-					default:
-					return winner.tie;
-				}
-			}
+			case choice.rock:
+				switch (two) {
+					case choice.rock:
+						return winner.tie;
+					case choice.scissors:
+						return winner.p1wins;
+					case choice.undecided:
+						return winner.p1wins;
+					case choice.paper:
+						return winner.p2wins;
+					}
+			break;
+			case choice.scissors:
+				switch (two) {
+					case choice.rock:
+						return winner.p2wins;
+					case choice.scissors:
+						return winner.tie;
+					case choice.paper:
+						return winner.p1wins;
+					case choice.undecided:
+						return winner.p1wins;
+					}
+			break;
+			case choice.paper:
+					switch (two) {
+					case choice.undecided:
+						return winner.tie;
+					case choice.rock:
+						return winner.p1wins;
+					case choice.scissors:
+						return winner.p2wins;
+					case choice.paper:
+						return winner.tie;
+					}
+			break;
+			default: return winner.tie;
 		}
+		return winner.tie;
 	}
 
 }
