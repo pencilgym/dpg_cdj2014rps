@@ -20,3 +20,11 @@ public enum winner {
 	p2wins,
 	tie
 }
+
+public enum pState {	// player states
+	introrun,
+	idle,
+	win,
+	lose,
+	winrun
+};

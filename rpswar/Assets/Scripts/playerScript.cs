@@ -2,15 +2,7 @@
 using System.Collections;
 
 public class playerScript : MonoBehaviour {
-	
-	public enum pState {
-		introrun,
-		idle,
-		win,
-		lose,
-		winrun
-	};
-	
+
 	public bool	playerTwo;
 	public float runspeed = 3.5f;
 	public pState playerState;
