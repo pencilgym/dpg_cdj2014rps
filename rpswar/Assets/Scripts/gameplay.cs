@@ -6,7 +6,8 @@ public class gameplay : MonoBehaviour {
 	public GameObject playerObj;
 
 	int screenX = 0;	// backgroud screen we're fighting on
-	float destinationX;	// when scrolling to a new screen, X coord we want for camera
+	bool	newWinner = false;	// false = player 2 won, move left, true = player 1 won, move right
+	public float scrollSpeed = 6f;
 
 	float[] screenXs = {
 		-76.8f,-57.6f,-38.4f,-19.2f,0,19.2f,38.4f,57.6f,76.8f
@@ -29,19 +30,40 @@ public class gameplay : MonoBehaviour {
 				gameState = gState.intro;
 				break;
 			case gState.intro:
+//				gameState = gState.showresult;
+//				newWinner = true;
 				break;
 			case gState.getready:
 				break;
 			case gState.choose:
 				break;
 			case gState.showresult:
-				// check to see if final victory achieved, if so go to victory
-
-				// when done showing the result, start scrolling screen
-				destinationX = screenXs[screenX];
-				gameState = gState.movetonextscene;
+				if (newWinner) {	// player 1 wins this battle?
+					if (screenX == 7) {
+						gameState = gState.victory;
+					} else {
+						screenX++;
+						gameState = gState.movetonextscene;
+					}
+				} else {	// player 2 wins this battle
+					if (screenX == 0) {
+						gameState = gState.victory;
+					} else {
+						screenX--;
+						gameState = gState.movetonextscene;
+					}
+				}
 				break;
 			case gState.movetonextscene:
+				if (newWinner) {	// player 1 won, scrolling left
+					transform.position += new Vector3(scrollSpeed * Time.deltaTime,0,0);
+					if (transform.position.x > screenXs[screenX])
+						gameState = gState.getready;
+				} else {		// player 2 won, scrolling right
+					transform.position -= new Vector3(scrollSpeed * Time.deltaTime,0,0);
+					if (transform.position.x < screenXs[screenX])
+						gameState = gState.getready;
+				}
 				break;
 			case gState.victory:
 				break;

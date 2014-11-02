@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: 61c81b37fc0bbec40b6f893e67c29f76
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: explosion_1
+    21300002: explosion_2
+    21300004: explosion_3
+    21300006: explosion_4
+    21300008: explosion_5
+    21300010: explosion_debris1
+    21300012: explosion_debris2
+    21300014: explosion_debris3
+    21300016: explosion_debris4
+    21300018: explosion_debris5
+    21300020: explosion_debris6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: explosion_1
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1383
+        width: 617
+        height: 629
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: explosion_2
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 1266
+        width: 702
+        height: 763
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: explosion_3
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 717
+        width: 735
+        height: 634
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: explosion_4
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 0
+        width: 779
+        height: 709
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: explosion_5
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 217
+        width: 891
+        height: 892
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: explosion_debris1
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 1726
+        width: 149
+        height: 161
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: explosion_debris2
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 1738
+        width: 137
+        height: 149
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: explosion_debris3
+      rect:
+        serializedVersion: 2
+        x: 1845
+        y: 1577
+        width: 133
+        height: 129
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: explosion_debris4
+      rect:
+        serializedVersion: 2
+        x: 1756
+        y: 1399
+        width: 121
+        height: 158
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: explosion_debris5
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 1319
+        width: 101
+        height: 161
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: explosion_debris6
+      rect:
+        serializedVersion: 2
+        x: 1482
+        y: 1492
+        width: 133
+        height: 149
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
