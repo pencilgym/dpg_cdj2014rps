@@ -902,7 +902,7 @@ MonoBehaviour:
   scaleValue: .349999994
   playerTwo: 1
   runspeed: 5
-  playerState: 1
+  playerState: 4
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

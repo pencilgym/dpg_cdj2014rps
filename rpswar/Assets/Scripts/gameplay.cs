@@ -9,10 +9,13 @@ public class gameplay : MonoBehaviour {
 	
 	GameObject plr1;
 	GameObject plr2;
-	
+
+
+
 	int screenX;	// backgroud screen we're fighting on
 	bool newWinner = false;	// false = player 2 won, move left, true = player 1 won, move right
 	public float scrollSpeed = 6f;
+	public bool canDeclare = false;
 	
 	float[] screenXs = {
 		-76.8f,-57.6f,-38.4f,-19.2f,0,19.2f,38.4f,57.6f,76.8f
@@ -85,6 +88,7 @@ public class gameplay : MonoBehaviour {
 	}
 	*/
 	public void beginDeclaration() {
+		canDeclare = true;
 		gameState = gState.choose;
 	}
 	
@@ -102,10 +106,9 @@ public class gameplay : MonoBehaviour {
 	
 	
 	public winner determineWinner(choice one, choice two) {
-
+		canDeclare = false;
 		playerScript p1 = plr1.GetComponent<playerScript> () as playerScript;
 		playerScript p2 = plr2.GetComponent<playerScript> () as playerScript;
-		Debug.Log (one + " " + two);
 		if (one == choice.undecided && two == choice.undecided) {
 			p1.ChangeAnimation(pState.idle);
 			p2.ChangeAnimation(pState.idle);
@@ -114,6 +117,8 @@ public class gameplay : MonoBehaviour {
 			}
 		switch (one) {
 		case choice.undecided:
+			newWinner = false;
+			gameState = gState.showresult;
 			p2.ChangeAnimation(pState.winrun);
 			return winner.p2wins;
 		case choice.rock:
@@ -124,13 +129,20 @@ public class gameplay : MonoBehaviour {
 				gameState = gState.getready;
 				return winner.tie;
 			case choice.scissors:
+				newWinner = true;
+				gameState = gState.showresult;
 				p1.ChangeAnimation(pState.winrun);
 				p2.ChangeAnimation(pState.lose);
 				return winner.p1wins;
 			case choice.undecided:
+				newWinner = true;
+				gameState = gState.showresult;
 				p1.ChangeAnimation(pState.winrun);
+				p2.ChangeAnimation(pState.lose);
 				return winner.p1wins;
 			case choice.paper:
+				newWinner = false;
+				gameState = gState.showresult;
 				p2.ChangeAnimation(pState.winrun);
 				p1.ChangeAnimation(pState.lose);
 				return winner.p2wins;
@@ -139,6 +151,8 @@ public class gameplay : MonoBehaviour {
 		case choice.scissors:
 			switch (two) {
 			case choice.rock:
+				newWinner = false;
+				gameState = gState.showresult;
 				p2.ChangeAnimation(pState.winrun);
 				p1.ChangeAnimation(pState.lose);
 				return winner.p2wins;
@@ -148,10 +162,14 @@ public class gameplay : MonoBehaviour {
 				gameState = gState.getready;
 				return winner.tie;
 			case choice.paper:
+				newWinner = true;
+				gameState = gState.showresult;
 				p1.ChangeAnimation(pState.winrun);
 				p2.ChangeAnimation(pState.lose);
 				return winner.p1wins;
 			case choice.undecided:
+				newWinner = true;
+				gameState = gState.showresult;
 				p1.ChangeAnimation(pState.winrun);
 				p2.ChangeAnimation(pState.lose);
 				return winner.p1wins;
@@ -165,10 +183,14 @@ public class gameplay : MonoBehaviour {
 				gameState = gState.getready;
 				return winner.tie;
 			case choice.rock:
+				newWinner = true;
+				gameState = gState.showresult;
 				p2.ChangeAnimation(pState.lose);
 				p1.ChangeAnimation(pState.winrun);
 				return winner.p1wins;
 			case choice.scissors:
+				newWinner = false;
+				gameState = gState.showresult;
 				p1.ChangeAnimation(pState.lose);
 				p2.ChangeAnimation(pState.winrun);
 				return winner.p2wins;
@@ -190,5 +212,6 @@ public class gameplay : MonoBehaviour {
 		gameState = gState.getready;
 		return winner.tie;
 	}
-	
+
+
 }

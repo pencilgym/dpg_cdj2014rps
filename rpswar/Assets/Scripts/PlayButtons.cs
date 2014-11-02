@@ -21,14 +21,11 @@ public class PlayButtons : MonoBehaviour {
 	
 	void Update()
 	{
-		if (p2Press!=choice.undecided && p1Press!=choice.undecided) {
-			p1Press = choice.undecided;
-			p2Press = choice.undecided;
-		}
+		checkAllTouches ();
 	}
 	
 	void OnGUI(){
-		
+		/*
 		float leftButtonX = (float)(Screen.width / 10) ;
 		float rightButtonX = (float)(Screen.width / 1.3) ;
 		float buttonYPaper = (float)(Screen.height / 100);
@@ -38,8 +35,6 @@ public class PlayButtons : MonoBehaviour {
 		
 		if (GUI.Button(new Rect(leftButtonX, buttonYPaper, buttonDiameter, buttonDiameter), "", paperButtonBlue)) {
 			p1Press = choice.paper;
-			Debug.Log("Wee guuchi");
-			GetComponent<gameplay>().determineWinner(choice.paper, choice.rock);
 		}
 		if (GUI.Button(new Rect(leftButtonX, buttonYRock, buttonDiameter, buttonDiameter), "", rockButtonBlue)) {
 			p1Press = choice.rock;
@@ -55,8 +50,39 @@ public class PlayButtons : MonoBehaviour {
 		}
 		if (GUI.Button(new Rect(rightButtonX, buttonYScissors, buttonDiameter, buttonDiameter), "", scissorButtonRed)) {
 			p2Press = choice.scissors;
-		}
+		}*/
 		
+	}
+
+	void checkAllTouches() {
+		int fingerCount = 0;
+		foreach (Touch touch in Input.touches) {
+			//			if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
+			if (touch.phase == TouchPhase.Began) {
+				SetChoice (touch.position);
+				fingerCount++;
+			}
+		}
+		// if no touches then accept a mouse click as a simulated touch
+		if (fingerCount == 0 && Input.GetMouseButtonDown (0)) {
+				SetChoice (Input.mousePosition);
+		}
+	}
+
+	void SetChoice(Vector2 vect)
+	{
+
+		Vector3 v = new Vector3(vect.x, vect.y, 0);
+		Ray r = Camera.main.ScreenPointToRay (v);
+		RaycastHit hit;
+		if (Physics.Raycast (r, out hit)) {
+			Debug.Log ("SHIT");
+			ButtonBehavior b =hit.transform.GetComponent<ButtonBehavior>() as ButtonBehavior;
+			if(b.p1) p1Press = b.buttonChoice;
+			else p2Press = b.buttonChoice;
+		}
+		levelManager.determineWinner (p1Press, p2Press);
+
 	}
 	
 }
