@@ -2,9 +2,12 @@
 using System.Collections;
 
 public class PlayButtons : MonoBehaviour {
-	public GUIStyle paperButton;
-	public GUIStyle rockButton;
-	public GUIStyle scissorButton;
+	public GUIStyle paperButtonBlue;
+	public GUIStyle rockButtonBlue;
+	public GUIStyle scissorButtonBlue;
+	public GUIStyle paperButtonRed;
+	public GUIStyle rockButtonRed;
+	public GUIStyle scissorButtonRed;
 
 	public gameplay levelManager;
 
@@ -34,22 +37,22 @@ public class PlayButtons : MonoBehaviour {
 		float buttonYScissors = (float) (Screen.height / 1.5);
 		float buttonDiameter = (float)(Screen.height / 3.5);
 
-		if (GUI.Button(new Rect(leftButtonX, buttonYPaper, buttonDiameter, buttonDiameter), "", paperButton)) {
+		if (GUI.Button(new Rect(leftButtonX, buttonYPaper, buttonDiameter, buttonDiameter), "", paperButtonBlue)) {
 			p1Press = choice.paper;
 		}
-		if (GUI.Button(new Rect(leftButtonX, buttonYRock, buttonDiameter, buttonDiameter), "", rockButton)) {
+		if (GUI.Button(new Rect(leftButtonX, buttonYRock, buttonDiameter, buttonDiameter), "", rockButtonBlue)) {
 			p1Press = choice.rock;
 		}
-		if (GUI.Button(new Rect(leftButtonX, buttonYScissors, buttonDiameter, buttonDiameter), "", scissorButton)) {
+		if (GUI.Button(new Rect(leftButtonX, buttonYScissors, buttonDiameter, buttonDiameter), "", scissorButtonBlue)) {
 			p1Press = choice.scissors;
 		}
-		if (GUI.Button(new Rect(rightButtonX, buttonYPaper, buttonDiameter, buttonDiameter), "", paperButton)) {
+		if (GUI.Button(new Rect(rightButtonX, buttonYPaper, buttonDiameter, buttonDiameter), "", paperButtonRed)) {
 			p2Press = choice.paper;
 		}
-		if (GUI.Button(new Rect(rightButtonX, buttonYRock, buttonDiameter, buttonDiameter), "", rockButton)) {
+		if (GUI.Button(new Rect(rightButtonX, buttonYRock, buttonDiameter, buttonDiameter), "", rockButtonRed)) {
 			p2Press = choice.rock;
 		}
-		if (GUI.Button(new Rect(rightButtonX, buttonYScissors, buttonDiameter, buttonDiameter), "", scissorButton)) {
+		if (GUI.Button(new Rect(rightButtonX, buttonYScissors, buttonDiameter, buttonDiameter), "", scissorButtonRed)) {
 			p2Press = choice.scissors;
 		}
 
