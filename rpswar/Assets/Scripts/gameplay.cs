@@ -4,6 +4,10 @@ using System.Collections;
 public class gameplay : MonoBehaviour {
 	static	gState gameState;
 	public GameObject playerObj;
+	public GameObject numberObj;
+
+	GameObject plr1;
+	GameObject plr2;
 
 	int screenX = 0;	// backgroud screen we're fighting on
 	bool	newWinner = false;	// false = player 2 won, move left, true = player 1 won, move right
@@ -15,7 +19,7 @@ public class gameplay : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gameState = gState.setupscene;
-		screenX = 4;	// middle screen
+		screenX = 4;	// start at middle screen
 		transform.position = new Vector3(screenXs[screenX],transform.position.y,transform.position.z);
 	}
 	
@@ -24,16 +28,22 @@ public class gameplay : MonoBehaviour {
 		switch (gameState) {
 			case gState.setupscene:
 				// instantiate players
-				Instantiate(playerObj, new Vector3(-3.34f, 1.07f, 0), Quaternion.identity);
-				GameObject tmpPlr = (GameObject) Instantiate(playerObj, new Vector3(17.3f, 1.07f, 0), Quaternion.identity);
-				tmpPlr.GetComponent<playerScript>().makePlayerTwo();
+				plr1 = Instantiate(playerObj, new Vector3(-3.34f, 1.07f, 0), Quaternion.identity) as GameObject;
+				plr2 = (GameObject) Instantiate(playerObj, new Vector3(17.3f, 1.07f, 0), Quaternion.identity);
+				plr2.GetComponent<playerScript>().makePlayerTwo();
 				gameState = gState.intro;
 				break;
-			case gState.intro:
+			case gState.intro:	// run characters in from sides
 //				gameState = gState.showresult;
 //				newWinner = true;
+				if (plr1.GetComponent<playerScript>().playerState == pState.idle) {
+					float centerX = screenXs[screenX] + Screen.width/2;
+//					Instantiate(numberObj, new Vector3(centerX, Screen.height/2, 0), Quaternion.identity); // spawn #
+					gameState = gState.getready;
+				}
 				break;
-			case gState.getready:
+			case gState.getready:	// count down 5..4..3..2..1..
+				
 				break;
 			case gState.choose:
 				break;
