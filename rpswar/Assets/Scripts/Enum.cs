@@ -7,6 +7,7 @@
 	killloser,
 	movetonextscene,
 	victory,
+	finalvictory,
 };
 
 public enum choice {

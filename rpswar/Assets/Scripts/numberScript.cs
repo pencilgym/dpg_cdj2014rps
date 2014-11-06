@@ -5,11 +5,14 @@ public class numberScript : MonoBehaviour {
 	
 	float timeToTick;	// keep track of time for next tick
 	int ticksToGo;
-	
+
+	public AudioClip ac;
+
 	// Use this for initialization
 	void Start () {
 		timeToTick = Time.time+0.5f;
 		ticksToGo = 4;
+		InvokeRepeating ("Sound", 1, 5);
 	}
 	
 	// Update is called once per frame
@@ -27,6 +30,7 @@ public class numberScript : MonoBehaviour {
 		
 		if (Time.time > timeToTick) {
 			timeToTick = Time.time+0.5f;
+			if(Time.time%1 == Time.time) Sound ();
 			if (--ticksToGo < 0) {
 				Camera.main.GetComponent<gameplay>().beginDeclaration();
 				Destroy (gameObject);
@@ -37,5 +41,10 @@ public class numberScript : MonoBehaviour {
 				child.gameObject.SetActive(true);
 			}
 		}
+	}
+
+	void Sound()
+	{
+		audio.PlayOneShot (ac);
 	}
 }

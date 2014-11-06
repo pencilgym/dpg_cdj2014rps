@@ -10,10 +10,13 @@ public class PlayButtons : MonoBehaviour {
 	public GUIStyle scissorButtonRed;
 	
 	public gameplay levelManager;
+
+	public AudioClip ac;
 	
-	choice p1Press = choice.undecided;
-	choice p2Press = choice.undecided;
-	
+	//choice p1Press = choice.undecided;
+	//choice p2Press = choice.undecided;
+
+	protected ButtonBehavior _b;
 	void Start()
 	{
 		levelManager = GetComponent<gameplay> ();
@@ -53,36 +56,54 @@ public class PlayButtons : MonoBehaviour {
 		}*/
 		
 	}
-
+	
 	void checkAllTouches() {
 		int fingerCount = 0;
-		foreach (Touch touch in Input.touches) {
-			//			if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
-			if (touch.phase == TouchPhase.Began) {
-				SetChoice (touch.position);
-				fingerCount++;
+		if(Input.touchCount > 0)
+		{
+
+			for (int i = 0;  i<Input.touchCount;i++)
+			{
+		//	Application.LoadLevel("Menu");
+			Touch t = Input.GetTouch(i);
+			if(t.phase == TouchPhase.Began)
+				{
+					SetChoice (t.position);
+				}
 			}
 		}
 		// if no touches then accept a mouse click as a simulated touch
 		if (fingerCount == 0 && Input.GetMouseButtonDown (0)) {
-				SetChoice (Input.mousePosition);
+			SetChoice (Input.mousePosition);
 		}
 	}
-
+	
 	void SetChoice(Vector2 vect)
 	{
-
+		if (!levelManager.canDeclare)	// exit if buttons can not be pressed yet
+			return;
 		Vector3 v = new Vector3(vect.x, vect.y, 0);
 		Ray r = Camera.main.ScreenPointToRay (v);
 		RaycastHit hit;
 		if (Physics.Raycast (r, out hit)) {
-			Debug.Log ("SHIT");
-			ButtonBehavior b =hit.transform.GetComponent<ButtonBehavior>() as ButtonBehavior;
-			if(b.p1) p1Press = b.buttonChoice;
-			else p2Press = b.buttonChoice;
+			audio.PlayOneShot(ac);
+			Debug.Log ("button hit");
+			ButtonBehavior b = hit.transform.GetComponent<ButtonBehavior>() as ButtonBehavior;
+			b.GetComponent<SpriteRenderer>().sprite = b.pressedSprite;
+			_b = b;
+			Invoke ("StupidAnimation", 0.1f);
+			if(b.p1) levelManager.player1choice = b.buttonChoice;
+			else levelManager.player2choice = b.buttonChoice;
+			string debugstring = "p1: " + levelManager.player1choice + "p2: " + levelManager.player2choice;
+			Debug.Log (debugstring);
 		}
-		levelManager.determineWinner (p1Press, p2Press);
-
+		// determine winner decided in gameplay.cs
+		// levelManager.determineWinner (p1Press, p2Press);
+		
+	}
+	void StupidAnimation()
+	{
+		_b.GetComponent<SpriteRenderer> ().sprite = _b.defaultSprite;
 	}
 	
 }

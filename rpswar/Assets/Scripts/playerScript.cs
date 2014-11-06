@@ -28,11 +28,10 @@ public class playerScript : MonoBehaviour {
 
 		switch (playerState) {
 		case pState.introrun:
-			transform.position += new Vector3(runspeed * Time.deltaTime,0,0);
+		//	transform.position += new Vector3(runspeed * Time.deltaTime,0,0);
 			if (Time.time > misctime + 1.5f){
 				playerState = pState.idle;
-				ChangeAnimation(playerState);
-				Debug.Log("SEEE");
+
 			}
 			break;
 		case pState.idle:
@@ -44,7 +43,7 @@ public class playerScript : MonoBehaviour {
 		case pState.winrun:
 			break;
 		} 
-		
+		ChangeAnimation(playerState);
 	}
 	
 	public void makePlayerTwo() {
@@ -54,7 +53,7 @@ public class playerScript : MonoBehaviour {
 	
 	public void ChangeAnimation(pState state){
 
-		Debug.Log (gameObject.name);
+//		Debug.Log (gameObject.name);
 
 		playerState = state;
 		if(playerTwo){
@@ -63,23 +62,28 @@ public class playerScript : MonoBehaviour {
 			playerColor = "red";
 		}
 		if (state == pState.idle) {
-			playerState = pState.idle;
+	//		playerState = pState.idle;
 			animation.Play (playerColor+"_idle");
 		}
 		if(state == pState.introrun) {
-			playerState = pState.introrun;
+	//	playerState = pState.introrun;
 			animation.Play(playerColor+"_run");
 		}
 		if(state == pState.winrun){
-			playerState = pState.winrun;
+	//		playerState = pState.winrun;
 			animation.Play(playerColor+"_run");
 		}
 		if (state == pState.lose){
-			playerState = pState.lose;
+	//		playerState = pState.lose;
 			animation.Play (playerColor+"_death");
 		}
 		if (state == pState.win){
-			playerState = pState.win;
+	//		playerState = pState.win;
 		}
+	}
+
+	void FinishWinner()
+	{
+		playerState = pState.idle;
 	}
 }

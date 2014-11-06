@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{2CDAC028-4AF6-7B69-DD4C-7074A7EA293C}") = "rpswar", "Assembly-CSharp-firstpass-vs.csproj", "{BD404972-5BCD-DF8E-15AF-886D69519875}"
+EndProject
 Project("{2CDAC028-4AF6-7B69-DD4C-7074A7EA293C}") = "rpswar", "Assembly-CSharp-vs.csproj", "{8BCD8E6C-A9F3-D8AD-46ED-58857E1A200B}"
 EndProject
 Global
@@ -9,6 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD404972-5BCD-DF8E-15AF-886D69519875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD404972-5BCD-DF8E-15AF-886D69519875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD404972-5BCD-DF8E-15AF-886D69519875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD404972-5BCD-DF8E-15AF-886D69519875}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8BCD8E6C-A9F3-D8AD-46ED-58857E1A200B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8BCD8E6C-A9F3-D8AD-46ED-58857E1A200B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BCD8E6C-A9F3-D8AD-46ED-58857E1A200B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -17,7 +23,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																								GlobalSection(MonoDevelopProperties) = preSolution
+																																GlobalSection(MonoDevelopProperties) = preSolution
 =======
 													GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> FETCH_HEAD
