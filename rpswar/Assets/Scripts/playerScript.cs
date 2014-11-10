@@ -2,19 +2,18 @@
 using System.Collections;
 
 public class playerScript : MonoBehaviour {
-	
-	public float scaleValue = 0.4f;
+
 	public bool	playerTwo;
 	public float runspeed = 3.5f;
 	public pState playerState;
 	private string playerColor;
 	float misctime;
 	
-	
+
+	private bool done = false;
 	// Use this for initialization
 	void Start () {
 		Vector3 vect = transform.localScale;
-		vect = vect * scaleValue;
 		playerState = pState.introrun;
 		misctime = Time.time;
 		if (playerTwo) {
@@ -62,23 +61,29 @@ public class playerScript : MonoBehaviour {
 			playerColor = "red";
 		}
 		if (state == pState.idle) {
-	//		playerState = pState.idle;
+			animation.wrapMode = WrapMode.Loop;
 			animation.Play (playerColor+"_idle");
 		}
 		if(state == pState.introrun) {
-	//	playerState = pState.introrun;
+			animation.wrapMode = WrapMode.Loop;
 			animation.Play(playerColor+"_run");
 		}
 		if(state == pState.winrun){
-	//		playerState = pState.winrun;
+			animation.wrapMode = WrapMode.Loop;
 			animation.Play(playerColor+"_run");
 		}
 		if (state == pState.lose){
-	//		playerState = pState.lose;
+			animation.wrapMode = WrapMode.Once;
 			animation.Play (playerColor+"_death");
 		}
-		if (state == pState.win){
-	//		playerState = pState.win;
+		if (state == pState.victory){
+			animation.wrapMode = WrapMode.Loop;
+			animation.Play (playerColor+"_victory");
+		}
+		if (state == pState.defeat && !done){
+			animation.wrapMode = WrapMode.Once;
+			animation.Play (playerColor+"_crouch");
+			done = true;
 		}
 	}
 

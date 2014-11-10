@@ -28,5 +28,7 @@ public enum pState {	// player states
 	idle,
 	win,
 	lose,
-	winrun
+	winrun,
+	victory,
+	defeat
 };

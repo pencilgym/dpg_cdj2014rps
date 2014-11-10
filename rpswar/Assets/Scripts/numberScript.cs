@@ -12,7 +12,7 @@ public class numberScript : MonoBehaviour {
 	void Start () {
 		timeToTick = Time.time+0.5f;
 		ticksToGo = 4;
-		InvokeRepeating ("Sound", 1, 5);
+		InvokeRepeating ("Sound", 0, 0.5f);
 	}
 	
 	// Update is called once per frame
